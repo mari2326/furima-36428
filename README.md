@@ -2,14 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type    | Options     |
-| ------------------ | ------  | ----------- |
-| nickname           | string  | null: false |
-| encrypted_password | string  | null: false | 
-| email              | string  | null: false |
-| name               | string  | null: false |
-| name_kana          | string  | null: false | 
-| birthday           | integer | null: false |
+| Column             | Type    | Options                   |
+| ------------------ | ------  | ------------------------- |
+| nickname           | string  | null: false               |
+| encrypted_password | string  | null: false               | 
+| email              | string  | null: false, unique: true |
+| last_name          | string  | null: false               |
+| first_name         | string  | null: false               | 
+| last_name_kana     | string  | null: false               |
+| first_name_kana    | string  | null: false               | 
+| birthday           | date    | null: false               |
 
 ### Association
 
@@ -19,17 +21,17 @@
 
 ## items テーブル
 
-| Column             | Type       | Options                        |
-| ------------------ | ---------  | ------------------------------ |
-| title              | text       | null: false                    |
-| explanation        | text       | null: false                    | 
-| category           | string     | null: false                    |
-| state              | string     | null: false                    |
-| shipping charges   | string     | null: false                    | 
-| area               | string     | null: false                    |
-| days               | string     | null: false                    | 
-| price              | integer    | null: false                    |
-| user               | references | null: false, foreign_kye: true |
+| Column              | Type       | Options                        |
+| ------------------- | ---------  | ------------------------------ |
+| title               | String     | null: false                    |
+| explanation         | text       | null: false                    | 
+| category_id         | integer    | null: false                    |
+| scheduled_state_id  | integer    | null: false                    |
+| shipping_charge_id  | integer    | null: false                    | 
+| prefecture_id       | integer    | null: false                    |
+| scheduled_day _id   | integer    | null: false                    | 
+| price               | integer    | null: false                    |
+| user                | references | null: false, foreign_kye: true |
 
 ### Association
 
@@ -54,12 +56,12 @@
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| post code         | string     | null: false                    |
-| prefectures       | string     | null: false                    |
-| municipalities    | string     | null: false                    |
-| street number     | string     | null: false                    |      
-| building name     | text       |                                |
-| telephone number  | integer    | null: false                    |
+| post_code         | string     | null: false                    |
+| prefecture_id     | string     | null: false                    |
+| municipality      | string     | null: false                    |
+| street_number     | string     | null: false                    |      
+| building_name     | string     |                                |
+| telephone_number  | integer    | null: false                    |
 | buy               | references | null: false, foreign_key: true |
 
 ### Association
