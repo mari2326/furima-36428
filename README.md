@@ -23,13 +23,13 @@
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------  | ------------------------------ |
-| title               | String     | null: false                    |
+| title               | string     | null: false                    |
 | explanation         | text       | null: false                    | 
 | category_id         | integer    | null: false                    |
 | scheduled_state_id  | integer    | null: false                    |
 | shipping_charge_id  | integer    | null: false                    | 
 | prefecture_id       | integer    | null: false                    |
-| scheduled_day _id   | integer    | null: false                    | 
+| scheduled_day_id    | integer    | null: false                    | 
 | price               | integer    | null: false                    |
 | user                | references | null: false, foreign_kye: true |
 
@@ -57,11 +57,11 @@
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
 | post_code         | string     | null: false                    |
-| prefecture_id     | string     | null: false                    |
+| prefecture_id     | integer    | null: false                    |
 | municipality      | string     | null: false                    |
 | street_number     | string     | null: false                    |      
 | building_name     | string     |                                |
-| telephone_number  | integer    | null: false                    |
+| telephone_number  | string     | null: false                    |
 | buy               | references | null: false, foreign_key: true |
 
 ### Association
