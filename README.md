@@ -23,7 +23,7 @@
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------  | ------------------------------ |
-| title               | string     | null: false                    |
+| name                | string     | null: false                    |
 | explanation         | text       | null: false                    | 
 | category_id         | integer    | null: false                    |
 | scheduled_state_id  | integer    | null: false                    |
