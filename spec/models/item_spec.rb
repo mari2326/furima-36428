@@ -104,8 +104,20 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include('Price must be less than or equal to 9999999')
         end
 
-        it 'priceが半角数値でないと出品できないこと' do
+        it 'priceが半角でないと出品できないこと' do
           @item.price = '５５５５５'
+          @item.valid?
+          expect(@item.errors.full_messages).to include('Price is not a number')
+        end
+
+        it 'priceが半角英数混合では登録できないこと' do
+          @item.price = '11aaa'
+          @item.valid?
+          expect(@item.errors.full_messages).to include('Price is not a number')
+        end
+
+        it 'priceが半角英語のみでは登録できないこと' do
+          @item.price = 'aaaaa'
           @item.valid?
           expect(@item.errors.full_messages).to include('Price is not a number')
         end
