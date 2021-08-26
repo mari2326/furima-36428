@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
@@ -55,7 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def prevent_url
-    if current_user.id != @item.user_id
+    if @item.user_id != current_user.id || @item.buy != nil
       redirect_to root_path
     end
   end
